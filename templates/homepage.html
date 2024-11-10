@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> dev Bet - O Melhor Lugar para Apostar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a192f;
+            color: white;
+            height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Cabeçalho (Header) */
+        header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+            color: #00c6ff;
+            text-transform: uppercase;
+        }
+
+        header nav {
+            margin-top: 20px;
+        }
+
+        header nav a {
+            color: white;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        header nav a:hover {
+            color: #ff416c;
+        }
+
+        /* Banner Principal */
+        .banner {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .banner h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .banner .cta-button {
+            background: linear-gradient(90deg, #ff4b2b, #ff416c);
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.8rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 65, 108, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .banner .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(255, 65, 108, 0.8);
+        }
+
+        /* Seção de Apostas ao Vivo */
+        .live-bets {
+            width: 80%;
+            margin-top: 50px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .live-bets h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff416c;
+        }
+
+        .bet-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .bet-card {
+            background: #203a43;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bet-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .bet-card h3 {
+            margin-bottom: 20px;
+            color: #ff416c;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .bet-card p {
+            color: #b0bec5;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .bet-card button {
+            background: #00c6ff;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .bet-card button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estatísticas */
+        .stats {
+            width: 80%;
+            background-color: #121212;
+            padding: 50px 0;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .stats h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff416c;
+        }
+
+        .stats .stat-card {
+            background-color: #203a43;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .stats .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.5rem;
+            color: #ff416c;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #101010;
+            padding: 30px 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-top: 100px;
+            font-size: 1.2rem;
+        }
+
+        footer a {
+            color: #ff416c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .bet-cards {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .live-bets h2, .stats h2 {
+                font-size: 2rem;
+            }
+
+            .bet-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .stats .stat-card {
+                padding: 20px;
+            }
+
+            footer {
+                padding: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Aposta Top</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <div class="banner">
+        <h2>Seja bem-vindo ao melhor site de apostas</h2>
+         <button class="cta-button">Aposte Agora</button> 
+         <button class="cta-button">Faça seu primeiro deposito</button> 
+    </div>
+
+
+    <!-- Apostas ao Vivo -->
+    <div class="live-bets">
+        <h2>Apostas ao Vivo</h2>
+        <div class="bet-cards">
+            <div class="bet-card">
+                <h3>Futebol - Brasil vs Argentina</h3>
+                <p>Aposte em quem vai ganhar!</p>
+                <button>Fazer Aposta</button>
+            </div>
+            <div class="bet-card">
+                <h3>Basquete - Lakers vs Celtics</h3>
+                <p>Aposte em qual time marcará mais pontos!</p>
+                <button>Fazer Aposta</button>
+            </div>
+            <div class="bet-card">
+                <h3>Tênis - Federer vs Nadal</h3>
+                <p>Aposte em quem vai levar o título!</p>
+                <button>Fazer Aposta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estatísticas -->
+    <div class="stats">
+        <h2>Estatísticas de Apostas</h2>
+        <div class="stat-card">
+            <h3>Total de Apostadores</h3>
+            <p>4,500,000+</p>
+        </div>
+        <div class="stat-card">
+            <h3>Apostas Realizadas Hoje</h3>
+            <p>150,000+</p>
+        </div>
+        <div class="stat-card">
+            <h3>Ganhadores no Mês</h3>
+            <p>250,000+</p>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 FelipeBet. <a href="#">Termos e Condições</a></p>
+    </footer>
+
+</body>
+</html>
